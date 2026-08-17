@@ -2,203 +2,463 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>STUDIO 42 | Premium Prints & Frames</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:#070707;color:#fff;
-  font-family:Arial,sans-serif;line-height:1.5
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-a{text-decoration:none;color:inherit}
-.gold{color:#e5bd5b}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#070707;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.gold{
+  color:#e5bd5b;
+}
+
+/* WELCOME */
 
 #welcome{
-  position:fixed;inset:0;z-index:999;
+  position:fixed;
+  inset:0;
+  z-index:9999;
   background:#070707;
-  display:grid;place-items:center;text-align:center;
-  animation:welcomeOut 1s 2.5s forwards
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  animation:welcomeOut 1s ease 3s forwards;
 }
-#welcome h1{
-  font-size:clamp(45px,12vw,90px);
-  letter-spacing:5px;
-  animation:zoom 1.2s ease
+
+.welcome-content{
+  animation:welcomeIn 1.5s ease;
 }
-#welcome p{
+
+.welcome-small{
   color:#e5bd5b;
+  letter-spacing:5px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.welcome-title{
+  font-size:clamp(45px,12vw,90px);
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.welcome-title span{
+  color:#e5bd5b;
+}
+
+.welcome-sub{
+  color:#aaa;
   letter-spacing:4px;
-  margin:12px
+  font-size:12px;
+  margin-top:12px;
 }
-@keyframes zoom{
-  from{opacity:0;transform:scale(.7)}
-  to{opacity:1;transform:scale(1)}
+
+@keyframes welcomeIn{
+  from{
+    opacity:0;
+    transform:scale(.8);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 }
+
 @keyframes welcomeOut{
-  to{opacity:0;visibility:hidden}
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
 }
 
-nav{
-  position:sticky;top:0;z-index:50;
-  padding:17px 6%;
-  background:#0d0d0df2;
-  border-bottom:1px solid #252525;
-  display:flex;justify-content:space-between;
-  align-items:center
+/* NAVBAR */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(5,5,5,.96);
+  border-bottom:1px solid #3b321c;
+  backdrop-filter:blur(10px);
 }
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+}
+
 .logo{
-  font-size:23px;font-weight:bold;
-  letter-spacing:3px
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
 }
-nav a{
-  margin-left:16px;
-  color:#aaa;font-size:14px
-}
-nav a:hover{color:#e5bd5b}
 
-section{
-  padding:75px 6%;
-  text-align:center
+.logo span{
+  color:#e5bd5b;
 }
+
+.navlinks{
+  display:flex;
+  gap:28px;
+  font-size:14px;
+}
+
+.navlinks a:hover{
+  color:#e5bd5b;
+}
+
+/* HERO */
 
 .hero{
-  min-height:88vh;
-  display:grid;place-items:center;
+  min-height:82vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
   background:
-  radial-gradient(circle at center,
-  rgba(229,189,91,.16),transparent 43%)
+    radial-gradient(circle at center,#33270d 0%,#0b0b0b 35%,#070707 70%);
 }
-.hero h2{
-  font-size:clamp(50px,11vw,115px);
-  letter-spacing:-4px
+
+.hero-content{
+  max-width:850px;
 }
+
+.badge{
+  display:inline-block;
+  border:1px solid #765f22;
+  color:#e5bd5b;
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.hero h1{
+  font-size:clamp(50px,10vw,100px);
+  line-height:1;
+  margin:25px 0;
+  letter-spacing:4px;
+}
+
+.hero h1 span{
+  color:#e5bd5b;
+}
+
 .hero p{
-  max-width:680px;
-  margin:20px auto;
-  color:#aaa
+  max-width:650px;
+  margin:auto;
+  color:#ccc;
+  font-size:17px;
+}
+
+.buttons{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
 .btn{
-  display:inline-block;
-  padding:14px 25px;
-  margin:7px;
-  border:0;
-  border-radius:30px;
-  background:#e5bd5b;
-  color:#080808;
+  padding:14px 28px;
+  border-radius:8px;
+  border:1px solid #e5bd5b;
   font-weight:bold;
   cursor:pointer;
-  transition:.25s
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px #e5bd5b33
 }
 
-.grid{
-  max-width:1150px;
-  margin:30px auto;
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(200px,1fr));
-  gap:18px
+.btn-gold{
+  background:#e5bd5b;
+  color:#111;
 }
 
-.card{
+.btn-dark{
   background:#111;
-  border:1px solid #292929;
-  border-radius:20px;
-  padding:18px;
-  overflow:hidden;
-  transition:.3s
-}
-.card:hover{
-  transform:translateY(-6px);
-  border-color:#e5bd5b;
-  box-shadow:0 15px 40px #000
 }
 
-.card img{
-  width:100%;
-  height:230px;
-  object-fit:cover;
-  border-radius:14px;
-  margin-bottom:15px
+/* SECTIONS */
+
+section{
+  padding:65px 5%;
 }
 
-.card h3{margin-bottom:8px}
-.price{
+.section-title{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:35px;
+}
+
+.section-title span{
   color:#e5bd5b;
-  font-size:27px;
-  font-weight:bold
 }
+
+/* OFFER */
 
 .offer{
-  max-width:1000px;
-  margin:auto;
-  padding:35px
-}
-.offer h2{
-  font-size:clamp(32px,6vw,55px)
-}
-
-form{
-  max-width:650px;
-  margin:30px auto;
+  max-width:1050px;
+  margin:0 auto 55px;
+  border:1px solid #806525;
+  border-radius:15px;
   padding:25px;
-  background:#111;
-  border:1px solid #292929;
-  border-radius:20px
+  text-align:center;
+  background:linear-gradient(90deg,#100e08,#201907,#100e08);
 }
 
-input,select,textarea{
+.offer h2{
+  color:#e5bd5b;
+  font-size:30px;
+}
+
+.offer p{
+  color:#bbb;
+}
+
+/* PRODUCT GRID */
+
+.product-grid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:22px;
+}
+
+.product-card{
+  background:#101010;
+  border:1px solid #353535;
+  border-radius:15px;
+  padding:12px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-7px);
+  border-color:#e5bd5b;
+  box-shadow:0 10px 30px rgba(229,189,91,.12);
+}
+
+.product-card img{
   width:100%;
-  padding:14px;
-  margin:7px 0 15px;
-  background:#080808;
-  color:#fff;
-  border:1px solid #333;
+  height:240px;
+  object-fit:cover;
   border-radius:10px;
-  outline:none
+  display:block;
 }
-input:focus,select:focus,textarea:focus{
-  border-color:#e5bd5b
+
+.product-card h3{
+  margin-top:14px;
+  font-size:19px;
 }
+
+.price{
+  color:#e5bd5b;
+  font-size:23px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+/* PRINT SHOWCASE */
+
+.showcase{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.showcase img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #333;
+}
+
+/* ORDER */
+
+.order-box{
+  max-width:900px;
+  margin:auto;
+  border:1px solid #444;
+  border-radius:15px;
+  padding:25px;
+  background:#0d0d0d;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+input,
+select,
 textarea{
-  height:100px;
-  resize:vertical
+  width:100%;
+  background:#111;
+  color:#fff;
+  border:1px solid #444;
+  border-radius:8px;
+  padding:14px;
+  outline:none;
 }
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#e5bd5b;
+}
+
+textarea{
+  min-height:110px;
+  margin-top:15px;
+  resize:vertical;
+}
+
+.order-btn{
+  width:100%;
+  margin-top:15px;
+  padding:16px;
+  background:#e5bd5b;
+  color:#111;
+  border:0;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.order-btn:hover{
+  background:#f2cf72;
+}
+
+/* CONTACT */
+
+.contact{
+  text-align:center;
+}
+
+.contact-buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.contact-btn{
+  min-width:230px;
+  padding:14px 25px;
+  border:1px solid #555;
+  border-radius:8px;
+}
+
+.contact-btn:hover{
+  border-color:#e5bd5b;
+  color:#e5bd5b;
+}
+
+.whatsapp-number{
+  margin-top:18px;
+  color:#e5bd5b;
+  font-size:18px;
+}
+
+/* FOOTER */
 
 footer{
-  padding:35px;
   text-align:center;
-  color:#777;
-  border-top:1px solid #222
+  padding:25px;
+  border-top:1px solid #292929;
+  color:#999;
+  font-size:13px;
 }
 
-.wa{
+/* WHATSAPP FLOAT */
+
+.whatsapp{
   position:fixed;
-  right:20px;bottom:20px;
-  z-index:100;
-  width:58px;height:58px;
-  display:grid;place-items:center;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
   border-radius:50%;
-  background:#25d366;
-  color:#001b08;
-  font-size:27px;font-weight:bold
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  z-index:100;
+  box-shadow:0 5px 20px rgba(0,0,0,.5);
 }
+
+/* MOBILE */
 
 @media(max-width:650px){
-  nav{
-    flex-direction:column;
-    gap:12px
+
+  .nav{
+    height:60px;
   }
-  nav a{
-    margin:4px;
-    font-size:11px
+
+  .logo{
+    font-size:20px;
   }
-  section{padding:60px 4%}
+
+  .navlinks{
+    gap:12px;
+    font-size:11px;
+  }
+
+  .hero{
+    min-height:75vh;
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:50px 5%;
+  }
+
+  .product-card img{
+    height:220px;
+  }
 }
 </style>
 </head>
@@ -206,367 +466,388 @@ footer{
 <body>
 
 <!-- WELCOME -->
+
 <div id="welcome">
-  <div>
-    <p>WELCOME TO</p>
-    <h1>STUDIO <span class="gold">42</span></h1>
-    <p>PRINT • CREATE • REMEMBER</p>
+  <div class="welcome-content">
+    <div class="welcome-small">WELCOME TO</div>
+
+    <div class="welcome-title">
+      STUDIO <span>42</span>
+    </div>
+
+    <div class="welcome-sub">
+      PRINT • CREATE • REMEMBER
+    </div>
   </div>
 </div>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">
-    STUDIO <span class="gold">42</span>
-  </div>
 
-  <div>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#frames">Frames</a>
-    <a href="#price">Price</a>
-    <a href="#order">Order</a>
-  </div>
-</nav>
+<!-- NAVBAR -->
+
+<header>
+  <nav class="nav">
+
+    <div class="logo">
+      STUDIO <span>42</span>
+    </div>
+
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#prints">Prints</a>
+      <a href="#frames">Frames</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </nav>
+</header>
+
 
 <!-- HERO -->
+
 <section class="hero" id="home">
-  <div>
 
-    <p class="gold">
-      PREMIUM PRINTS • FRAMES • CREATIVE DESIGNS
-    </p>
+  <div class="hero-content">
 
-    <h2>
-      STUDIO <span class="gold">42</span>
-    </h2>
+    <div class="badge">
+      PREMIUM PRINTS • CREATIVE DESIGNS
+    </div>
+
+    <h1>
+      STUDIO <span>42</span>
+    </h1>
 
     <p>
-      Turn Your Memories Into Beautiful Prints.
-      Polaroids, wall posters, premium photo frames
-      and personalised creative designs.
+      Turn your favourite photos and memories into
+      beautiful Polaroids, posters and premium frames.
     </p>
 
-    <a class="btn" href="#price">
-      View Price List
+    <div class="buttons">
+
+      <a href="#prints" class="btn btn-gold">
+        VIEW PRICE LIST
+      </a>
+
+      <a href="#order" class="btn btn-dark">
+        ORDER NOW
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OFFER -->
+
+<div class="offer">
+
+  <h2>✨ BUY 2 GET 1 FREE ✨</h2>
+
+  <p>
+    Make more memories. Pay for two and get one extra print free.
+  </p>
+
+</div>
+
+
+<!-- PRINTS -->
+
+<section id="prints">
+
+  <h2 class="section-title">
+    Our <span>Prints</span>
+  </h2>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="images/polaroid.jpg" alt="Polaroid Prints">
+      <h3>Polaroid Prints</h3>
+      <div class="price">₹10</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/mini-poster.jpg" alt="Mini Poster">
+      <h3>Mini Poster</h3>
+      <div class="price">₹15</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/a4-poster.jpg" alt="A4 Poster">
+      <h3>A4 Poster</h3>
+      <div class="price">₹30</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/a3-poster.jpg" alt="A3 Poster">
+      <h3>A3 Poster</h3>
+      <div class="price">₹50</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/split-poster.jpg" alt="Split Poster">
+      <h3>Split Poster</h3>
+      <div class="price">₹100</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FRAMES -->
+
+<section id="frames">
+
+  <h2 class="section-title">
+    Our <span>Frames</span>
+  </h2>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="images/frame-4x4.jpg" alt="4 x 4 Frame">
+      <h3>4 × 4 Frame</h3>
+      <div class="price">₹120</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/frame-4x6.jpg" alt="4 x 6 Frame">
+      <h3>4 × 6 Frame</h3>
+      <div class="price">₹180</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/frame-a4.jpg" alt="A4 Frame">
+      <h3>A4 Frame</h3>
+      <div class="price">₹300</div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/frame-a3.jpg" alt="A3 Frame">
+      <h3>A3 Frame</h3>
+      <div class="price">₹500</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SHOWCASE -->
+
+<section>
+
+  <h2 class="section-title">
+    Our <span>Collection</span>
+  </h2>
+
+  <div class="showcase">
+
+    <img src="images/poster-showcase.jpg"
+         alt="Poster Collection">
+
+    <img src="images/a4-poster.jpg"
+         alt="A4 Poster">
+
+    <img src="images/polaroid.jpg"
+         alt="Polaroid Collection">
+
+  </div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section id="order">
+
+  <h2 class="section-title">
+    Place Your <span>Order</span>
+  </h2>
+
+  <div class="order-box">
+
+    <div class="form-grid">
+
+      <input
+        id="name"
+        type="text"
+        placeholder="Customer Name"
+        required
+      >
+
+      <input
+        id="phone"
+        type="tel"
+        value="+91 "
+        placeholder="+91 WhatsApp Number"
+        required
+      >
+
+      <select id="product">
+
+        <option value="">
+          Select Product
+        </option>
+
+        <option>Polaroid - ₹10</option>
+        <option>Mini Poster - ₹15</option>
+        <option>A4 Poster - ₹30</option>
+        <option>A3 Poster - ₹50</option>
+        <option>Split Poster - ₹100</option>
+
+        <option>4 × 4 Frame - ₹120</option>
+        <option>4 × 6 Frame - ₹180</option>
+        <option>A4 Frame - ₹300</option>
+        <option>A3 Frame - ₹500</option>
+
+      </select>
+
+      <input
+        id="quantity"
+        type="number"
+        min="1"
+        value="1"
+        placeholder="Quantity"
+      >
+
+    </div>
+
+    <input
+      id="photo"
+      type="file"
+      accept="image/*"
+      style="margin-top:15px;"
+    >
+
+    <textarea
+      id="requirements"
+      placeholder="Custom Requirements (optional)"
+    ></textarea>
+
+    <button
+      class="order-btn"
+      onclick="sendOrder()"
+    >
+      SEND ORDER ON WHATSAPP ↗
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+  <h2 class="section-title">
+    Contact <span>STUDIO 42</span>
+  </h2>
+
+  <div class="contact-buttons">
+
+    <a
+      class="contact-btn"
+      href="https://www.instagram.com/"
+      target="_blank"
+    >
+      📷 Instagram
     </a>
 
-    <a class="btn" href="#order">
-      Order Now
+    <a
+      class="contact-btn"
+      href="https://wa.me/919087472456"
+      target="_blank"
+    >
+      💬 WhatsApp
     </a>
 
   </div>
-</section>
 
-<!-- PRODUCTS -->
-<section id="products">
-
-<h2>
-  Our <span class="gold">Prints</span>
-</h2>
-
-<p style="color:#aaa">
-  Beautiful prints for your favourite memories.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511105043137-7e66f7c736f0?auto=format&fit=crop&w=800&q=85">
-<h3>📸 Polaroid Prints</h3>
-<div class="price">₹10</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=85">
-<h3>🖼️ A4 Wall Poster</h3>
-<div class="price">₹30</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988c5?auto=format&fit=crop&w=800&q=85">
-<h3>🖼️ A3 Wall Poster</h3>
-<div class="price">₹50</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85">
-<h3>✨ Mini Poster</h3>
-<div class="price">₹15</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=85">
-<h3>🎨 Split Poster</h3>
-<div class="price">₹100</div>
-</div>
-
-</div>
-</section>
-
-<!-- FRAMES -->
-<section id="frames">
-
-<h2>
-  Premium <span class="gold">Frames</span>
-</h2>
-
-<p style="color:#aaa">
-  Turn your favourite photo into a beautiful display frame.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=85">
-<h3>🖼️ 4 × 4 Frame</h3>
-<div class="price">₹120</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=85">
-<h3>🖼️ 4 × 6 Frame</h3>
-<div class="price">₹180</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=800&q=85">
-<h3>🖼️ A4 Frame</h3>
-<div class="price">₹300</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1594784059543-3c4f9a4f1d4f?auto=format&fit=crop&w=800&q=85">
-<h3>🖼️ A3 Frame</h3>
-<div class="price">₹500</div>
-</div>
-
-</div>
-</section>
-
-<!-- OFFER -->
-<section>
-
-<div class="card offer">
-
-<p class="gold">✨ SPECIAL OFFER ✨</p>
-
-<h2>
-BUY 2 GET 1
-<span class="gold">FREE</span>
-</h2>
-
-<p style="color:#aaa">
-Order your favourite prints and get one
-extra print FREE.
-</p>
-
-</div>
+  <div class="whatsapp-number">
+    WhatsApp: +91 9087472456
+  </div>
 
 </section>
 
-<!-- PRICE -->
-<section id="price">
 
-<h2>
-Complete <span class="gold">Price List</span>
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Polaroid</h3>
-<div class="price">₹10</div>
-</div>
-
-<div class="card">
-<h3>Mini Poster</h3>
-<div class="price">₹15</div>
-</div>
-
-<div class="card">
-<h3>A4 Poster</h3>
-<div class="price">₹30</div>
-</div>
-
-<div class="card">
-<h3>A3 Poster</h3>
-<div class="price">₹50</div>
-</div>
-
-<div class="card">
-<h3>Split Poster</h3>
-<div class="price">₹100</div>
-</div>
-
-<div class="card">
-<h3>4 × 4 Frame</h3>
-<div class="price">₹120</div>
-</div>
-
-<div class="card">
-<h3>4 × 6 Frame</h3>
-<div class="price">₹180</div>
-</div>
-
-<div class="card">
-<h3>A4 Frame</h3>
-<div class="price">₹300</div>
-</div>
-
-<div class="card">
-<h3>A3 Frame</h3>
-<div class="price">₹500</div>
-</div>
-
-</div>
-</section>
-
-<!-- ORDER -->
-<section id="order">
-
-<h2>
-Place Your <span class="gold">Order</span>
-</h2>
-
-<p style="color:#aaa">
-Fill the details and send your order directly to STUDIO 42.
-</p>
-
-<form id="orderForm">
-
-<input
-id="name"
-placeholder="Customer Name"
-required>
-
-<input
-id="phone"
-placeholder="Your WhatsApp Number"
-required>
-
-<select id="product" required>
-<option value="">Select Product</option>
-
-<option>Polaroid - ₹10</option>
-<option>Mini Poster - ₹15</option>
-<option>A4 Wall Poster - ₹30</option>
-<option>A3 Wall Poster - ₹50</option>
-<option>Split Poster - ₹100</option>
-
-<option>4 × 4 Frame - ₹120</option>
-<option>4 × 6 Frame - ₹180</option>
-<option>A4 Frame - ₹300</option>
-<option>A3 Frame - ₹500</option>
-
-<option>Custom Design</option>
-</select>
-
-<input
-id="quantity"
-type="number"
-min="1"
-value="1"
-placeholder="Quantity">
-
-<select id="size">
-
-<option>Standard</option>
-<option>4 × 4</option>
-<option>4 × 6</option>
-<option>A4</option>
-<option>A3</option>
-<option>Custom</option>
-
-</select>
-
-<input
-id="photo"
-type="file"
-accept="image/*">
-
-<textarea
-id="requirements"
-placeholder="Custom Requirements">
-</textarea>
-
-<button class="btn" type="submit">
-Send Order on WhatsApp ↗
-</button>
-
-</form>
-</section>
-
-<!-- CONTACT -->
-<section>
-
-<h2>
-Contact <span class="gold">STUDIO 42</span>
-</h2>
-
-<p style="color:#aaa;margin:15px">
-WhatsApp: +91 9087472456
-</p>
-
-<a
-class="btn"
-href="https://instagram.com/_.studio_42"
-target="_blank">
-Instagram
-</a>
-
-<a
-class="btn"
-href="https://wa.me/919087472456"
-target="_blank">
-WhatsApp
-</a>
-
-</section>
+<!-- FOOTER -->
 
 <footer>
-STUDIO 42 © 2026<br>
-Premium Prints • Frames • Creative Designs
+
+  STUDIO 42 © 2026<br>
+  Premium Prints & Creative Designs
+
 </footer>
 
-<!-- WHATSAPP -->
+
+<!-- FLOATING WHATSAPP -->
+
 <a
-class="wa"
-href="https://wa.me/919087472456"
-target="_blank">
-✆
+  class="whatsapp"
+  href="https://wa.me/919087472456"
+  target="_blank"
+>
+  ☎
 </a>
+
 
 <script>
 
-document.getElementById("orderForm")
-.addEventListener("submit",function(e){
+function sendOrder(){
 
-e.preventDefault();
+  const name =
+    document.getElementById("name").value.trim();
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let product=document.getElementById("product").value;
-let quantity=document.getElementById("quantity").value;
-let size=document.getElementById("size").value;
-let req=document.getElementById("requirements").value;
+  const phone =
+    document.getElementById("phone").value.trim();
 
-let message=
-"Hi STUDIO 42!%0A%0A"+
-"🛍️ NEW ORDER%0A%0A"+
-"Name: "+encodeURIComponent(name)+"%0A"+
-"WhatsApp: "+encodeURIComponent(phone)+"%0A"+
-"Product: "+encodeURIComponent(product)+"%0A"+
-"Quantity: "+encodeURIComponent(quantity)+"%0A"+
-"Size: "+encodeURIComponent(size)+"%0A"+
-"Requirements: "+encodeURIComponent(req);
+  const product =
+    document.getElementById("product").value;
 
-window.open(
-"https://wa.me/919087472456?text="+message,
-"_blank"
-);
+  const quantity =
+    document.getElementById("quantity").value;
 
-});
+  const requirements =
+    document.getElementById("requirements").value.trim();
+
+  if(!name || !phone || !product){
+
+    alert("Please fill Name, WhatsApp Number and Product.");
+
+    return;
+  }
+
+  const message =
+`STUDIO 42 - NEW ORDER
+
+Customer Name: ${name}
+
+Customer WhatsApp:
+${phone}
+
+Product:
+${product}
+
+Quantity:
+${quantity}
+
+Requirements:
+${requirements || "None"}
+
+Please confirm my order.`;
+
+  const whatsappURL =
+    "https://wa.me/919087472456?text="
+    + encodeURIComponent(message);
+
+  window.open(whatsappURL,"_blank");
+
+}
 
 </script>
 
