@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio 42 | Custom Prints & Creative Studio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff;line-height:1.5}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.92);backdrop-filter:blur(12px);border-bottom:1px solid #292929}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px;color:#d7b35a}
+.navlinks{display:flex;gap:24px;font-size:14px}
+.navlinks a:hover{color:#d7b35a}
+.hero{min-height:82vh;display:grid;place-items:center;text-align:center;padding:70px 0;background:radial-gradient(circle at 50% 15%,#3b2b0b 0,#111 32%,#080808 70%)}
+.badge{display:inline-block;border:1px solid #8e6b22;color:#e4c66f;border-radius:999px;padding:8px 15px;font-size:12px;letter-spacing:1.5px;margin-bottom:20px}
+h1{font-size:clamp(44px,9vw,88px);line-height:.95;letter-spacing:4px}
+.gold{color:#d7b35a}
+.hero p{max-width:650px;margin:24px auto;color:#c9c9c9;font-size:17px}
+.btn{display:inline-block;padding:14px 24px;border-radius:10px;font-weight:700;margin:6px;border:1px solid #d7b35a}
+.btn.primary{background:#d7b35a;color:#090909}
+section{padding:75px 0}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:38px}
+.section-title p{color:#999;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#111;border:1px solid #282828;border-radius:18px;padding:26px;transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:#806321}
+.price{font-size:32px;color:#e2c16b;font-weight:900;margin:12px 0}
+.card p{color:#aaa}
+.offer{background:linear-gradient(135deg,#18140b,#0e0e0e);border:1px solid #75591f;border-radius:22px;padding:34px;text-align:center}
+.offer h3{font-size:32px;color:#f0d27c}
+.price-list{width:100%;border-collapse:collapse;background:#111;border-radius:16px;overflow:hidden}
+.price-list th,.price-list td{padding:17px;border-bottom:1px solid #292929;text-align:left}
+.price-list th{color:#d7b35a}
+.price-list td:last-child{font-weight:800;color:#fff}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.form{display:grid;gap:13px}
+input,textarea{width:100%;padding:14px;border-radius:10px;border:1px solid #333;background:#101010;color:#fff}
+textarea{min-height:120px;resize:vertical}
+footer{border-top:1px solid #282828;padding:30px 0;text-align:center;color:#888}
+.social{color:#d7b35a;font-weight:700}
+@media(max-width:700px){.navlinks{display:none}.grid,.contact{grid-template-columns:1fr}.hero{min-height:75vh}section{padding:55px 0}}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="#" class="logo">STUDIO 42</a>
+<nav class="navlinks">
+<a href="#services">Services</a><a href="#prices">Prices</a><a href="#offer">Offer</a><a href="#contact">Order</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container">
+<div class="badge">PREMIUM PRINTS • CREATIVE DESIGNS</div>
+<h1>STUDIO <span class="gold">42</span></h1>
+<p>Turn your favourite photos and designs into beautiful posters, polaroids and premium wall art.</p>
+<a class="btn primary" href="#prices">View Price List</a>
+<a class="btn" href="#contact">Place an Order</a>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<div class="section-title"><h2>What We Create</h2><p>Made for your room, memories & gifts.</p></div>
+<div class="grid">
+<div class="card"><div style="font-size:35px">📸</div><h3>Polaroids</h3><div class="price">₹10</div><p>Classic polaroid-style prints for your favourite memories.</p></div>
+<div class="card"><div style="font-size:35px">🖼️</div><h3>Wall Posters</h3><div class="price">From ₹30</div><p>Premium posters for bedrooms, desks and creative spaces.</p></div>
+<div class="card"><div style="font-size:35px">✨</div><h3>Custom Designs</h3><div class="price">Custom</div><p>Birthday, friendship, couple, aesthetic and personalised designs.</p></div>
+</div>
+</div>
+</section>
+
+<section id="offer">
+<div class="container">
+<div class="offer">
+<h3>✨ BUY 2 GET 1 FREE ✨</h3>
+<p style="color:#bbb;margin:10px 0 18px">Pick your favourite wall posters and get one extra print absolutely free.</p>
+<a class="btn primary" href="#contact">Claim Offer</a>
+</div>
+</div>
+</section>
+
+<section id="prices">
+<div class="container">
+<div class="section-title"><h2>Price List</h2><p>Simple pricing. Premium prints.</p></div>
+<table class="price-list">
+<tr><th>Product</th><th>Price</th></tr>
+<tr><td>📸 Polaroid</td><td>₹10</td></tr>
+<tr><td>🖼️ A4 Wall Poster</td><td>₹30</td></tr>
+<tr><td>🖼️ A3 Wall Poster</td><td>₹50</td></tr>
+<tr><td>🎨 Mini Poster</td><td>₹15</td></tr>
+<tr><td>✨ Split Poster</td><td>₹100</td></tr>
+</table>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-title"><h2>Place Your Order</h2><p>Send your requirements and we'll get back to you.</p></div>
+<div class="contact">
+<div class="card">
+<h3>📲 Contact Studio 42</h3>
+<p style="margin:14px 0;color:#aaa">For orders, custom designs and print enquiries.</p>
+<p>Instagram: <span class="social">@_.studio_42</span></p>
+<p style="margin-top:8px">WhatsApp: <span class="social">Add your number</span></p>
+</div>
+<form class="card form" onsubmit="sendOrder(event)">
+<input id="name" placeholder="Your Name" required>
+<input id="phone" placeholder="Phone / WhatsApp Number" required>
+<input id="product" placeholder="What do you want? (e.g. 10 Polaroids)" required>
+<textarea id="details" placeholder="Tell us your size, quantity or design requirements"></textarea>
+<button class="btn primary" type="submit">Send Order Request</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">© 2026 <span class="social">Studio 42</span> • Prints • Posters • Memories</div>
+</footer>
+
+<script>
+function sendOrder(e){
+ e.preventDefault();
+ const n=document.getElementById('name').value;
+ const p=document.getElementById('phone').value;
+ const pr=document.getElementById('product').value;
+ const d=document.getElementById('details').value;
+ const msg=`Studio 42 Order Request%0AName: ${n}%0APhone: ${p}%0AProduct: ${pr}%0ADetails: ${d}`;
+ window.open(`https://wa.me/?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
