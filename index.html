@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -13,18 +12,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================
-   GLOBAL
+   RESET
 ========================= */
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 html{
@@ -34,7 +33,7 @@ html{
 body{
   background:#050505;
   color:#fff;
-  font-family:"Inter",Arial,sans-serif;
+  font-family:"Inter",sans-serif;
   line-height:1.6;
   overflow-x:hidden;
 }
@@ -44,19 +43,14 @@ a{
   color:inherit;
 }
 
-.gold{
-  color:#e5bd5b;
-}
-
-/* Smooth selection */
-
 ::selection{
   background:#e5bd5b;
-  color:#080808;
+  color:#000;
 }
 
+
 /* =========================
-   PREMIUM SCROLLBAR
+   SCROLLBAR
 ========================= */
 
 ::-webkit-scrollbar{
@@ -72,6 +66,7 @@ a{
   border-radius:10px;
 }
 
+
 /* =========================
    WELCOME SCREEN
 ========================= */
@@ -81,22 +76,33 @@ a{
   inset:0;
   z-index:9999;
   background:#050505;
+
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
+
   animation:welcomeOut 1s ease 3s forwards;
 }
 
 .welcome-content{
-  animation:welcomeIn 1.5s ease;
+  animation:welcomeIn 1.4s ease;
+}
+
+.welcome-logo{
+  width:90px;
+  height:90px;
+  object-fit:contain;
+  margin:0 auto 20px;
+  border-radius:15px;
+  filter:drop-shadow(0 0 20px rgba(229,189,91,.3));
 }
 
 .welcome-small{
   color:#e5bd5b;
   letter-spacing:6px;
-  font-size:12px;
-  margin-bottom:18px;
+  font-size:11px;
+  margin-bottom:15px;
 }
 
 .welcome-title{
@@ -111,18 +117,17 @@ a{
 }
 
 .welcome-sub{
-  color:#aaa;
+  color:#999;
   letter-spacing:5px;
   font-size:11px;
-  margin-top:14px;
+  margin-top:12px;
 }
 
 @keyframes welcomeIn{
   from{
     opacity:0;
-    transform:scale(.75);
+    transform:scale(.7);
   }
-
   to{
     opacity:1;
     transform:scale(1);
@@ -136,6 +141,7 @@ a{
   }
 }
 
+
 /* =========================
    NAVBAR
 ========================= */
@@ -144,23 +150,25 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
+
   background:rgba(5,5,5,.88);
   border-bottom:1px solid rgba(229,189,91,.25);
+
   backdrop-filter:blur(15px);
   -webkit-backdrop-filter:blur(15px);
 }
 
 .nav{
   max-width:1150px;
-  margin:auto;
   min-height:72px;
+  margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:8px 20px;
-}
 
-/* LOGO IMAGE */
+  padding:7px 20px;
+}
 
 .nav-logo{
   display:flex;
@@ -171,21 +179,25 @@ header{
 .nav-logo img{
   width:52px;
   height:52px;
+
   object-fit:contain;
   display:block;
+
   border-radius:10px;
-  filter:drop-shadow(0 0 10px rgba(229,189,91,.18));
+
+  filter:drop-shadow(0 0 10px rgba(229,189,91,.2));
+
   transition:.3s ease;
 }
 
 .nav-logo img:hover{
-  transform:scale(1.06);
-  filter:drop-shadow(0 0 18px rgba(229,189,91,.45));
+  transform:scale(1.08);
+  filter:drop-shadow(0 0 20px rgba(229,189,91,.5));
 }
 
 .logo-text{
   font-family:"Playfair Display",serif;
-  font-size:24px;
+  font-size:23px;
   font-weight:800;
   letter-spacing:2px;
 }
@@ -196,15 +208,15 @@ header{
 
 .navlinks{
   display:flex;
-  gap:26px;
+  gap:25px;
   font-size:13px;
   font-weight:600;
 }
 
 .navlinks a{
   position:relative;
-  padding:8px 0;
   color:#ddd;
+  padding:8px 0;
   transition:.3s ease;
 }
 
@@ -213,8 +225,10 @@ header{
   position:absolute;
   left:0;
   bottom:0;
+
   width:0;
   height:2px;
+
   background:#e5bd5b;
   transition:.3s ease;
 }
@@ -227,43 +241,53 @@ header{
   width:100%;
 }
 
+
 /* =========================
    HERO
 ========================= */
 
 .hero{
   min-height:86vh;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   text-align:center;
+
   padding:80px 20px;
+
   position:relative;
   overflow:hidden;
 
   background:
     radial-gradient(
       circle at 50% 35%,
-      rgba(90,67,17,.45) 0%,
-      rgba(25,20,8,.35) 25%,
-      #070707 65%
+      rgba(90,67,17,.5),
+      rgba(25,20,8,.3) 30%,
+      #070707 70%
     );
 }
 
-/* Glow effect */
-
 .hero::before{
   content:"";
+
   position:absolute;
+
   width:500px;
   height:500px;
+
   border-radius:50%;
+
   background:rgba(229,189,91,.08);
+
   filter:blur(90px);
+
   animation:heroGlow 5s ease-in-out infinite alternate;
 }
 
 @keyframes heroGlow{
+
   from{
     transform:scale(.8);
     opacity:.4;
@@ -273,6 +297,7 @@ header{
     transform:scale(1.2);
     opacity:.8;
   }
+
 }
 
 .hero-content{
@@ -283,23 +308,49 @@ header{
 
 .badge{
   display:inline-block;
-  border:1px solid #765f22;
-  color:#e5bd5b;
+
   padding:9px 20px;
+
+  border:1px solid #765f22;
   border-radius:50px;
+
+  color:#e5bd5b;
+
   font-size:11px;
   letter-spacing:2px;
+
   background:rgba(229,189,91,.04);
-  box-shadow:0 0 25px rgba(229,189,91,.05);
+
+  box-shadow:0 0 25px rgba(229,189,91,.06);
 }
 
 .hero h1{
   font-family:"Playfair Display",serif;
+
   font-size:clamp(55px,10vw,105px);
+
   line-height:1;
+
   margin:28px 0;
+
   letter-spacing:5px;
-  text-shadow:0 0 35px rgba(229,189,91,.08);
+
+  text-shadow:
+    0 0 35px rgba(229,189,91,.12);
+
+  animation:titleFloat 4s ease-in-out infinite;
+}
+
+@keyframes titleFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-5px);
+  }
+
 }
 
 .hero h1 span{
@@ -309,48 +360,59 @@ header{
 .hero p{
   max-width:650px;
   margin:auto;
+
   color:#bbb;
   font-size:16px;
 }
 
 .buttons{
   margin-top:32px;
+
   display:flex;
   justify-content:center;
+
   gap:15px;
   flex-wrap:wrap;
 }
 
 .btn{
   padding:14px 30px;
+
   border-radius:10px;
+
   border:1px solid #e5bd5b;
+
   font-weight:700;
-  cursor:pointer;
+
   transition:.3s ease;
 }
 
 .btn-gold{
   background:#e5bd5b;
   color:#111;
-  box-shadow:0 8px 25px rgba(229,189,91,.15);
+
+  box-shadow:
+    0 8px 25px rgba(229,189,91,.15);
 }
 
 .btn-gold:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px);
+
   background:#f3d176;
-  box-shadow:0 12px 35px rgba(229,189,91,.28);
+
+  box-shadow:
+    0 12px 35px rgba(229,189,91,.3);
 }
 
 .btn-dark{
   background:#0d0d0d;
-  color:#fff;
 }
 
 .btn-dark:hover{
-  transform:translateY(-3px);
-  background:#171717;
+  transform:translateY(-4px);
+  background:#181818;
 }
+
 
 /* =========================
    SECTIONS
@@ -362,8 +424,11 @@ section{
 
 .section-title{
   text-align:center;
+
   font-family:"Playfair Display",serif;
+
   font-size:38px;
+
   margin-bottom:40px;
 }
 
@@ -371,17 +436,22 @@ section{
   color:#e5bd5b;
 }
 
+
 /* =========================
    OFFER
 ========================= */
 
 .offer{
   max-width:1050px;
+
   margin:0 auto 60px;
+
+  padding:28px 20px;
+
+  text-align:center;
+
   border:1px solid #806525;
   border-radius:18px;
-  padding:28px 20px;
-  text-align:center;
 
   background:
     linear-gradient(
@@ -393,19 +463,36 @@ section{
 
   box-shadow:
     0 10px 40px rgba(0,0,0,.4),
-    inset 0 0 30px rgba(229,189,91,.03);
+    inset 0 0 30px rgba(229,189,91,.04);
+
+  animation:offerGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes offerGlow{
+
+  from{
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+  }
+
+  to{
+    box-shadow:0 10px 45px rgba(229,189,91,.12);
+  }
+
 }
 
 .offer h2{
   color:#e5bd5b;
+
   font-family:"Playfair Display",serif;
+
   font-size:30px;
 }
 
 .offer p{
   color:#aaa;
-  margin-top:4px;
+  margin-top:5px;
 }
+
 
 /* =========================
    PRODUCT GRID
@@ -414,8 +501,12 @@ section{
 .product-grid{
   max-width:1150px;
   margin:auto;
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(210px,1fr));
+
   gap:22px;
 }
 
@@ -423,83 +514,113 @@ section{
   background:
     linear-gradient(
       145deg,
-      #131313,
-      #0b0b0b
+      #141414,
+      #090909
     );
 
   border:1px solid #292929;
+
   border-radius:18px;
+
   padding:12px;
+
   overflow:hidden;
+
   transition:.35s ease;
 
   box-shadow:
-    0 8px 25px rgba(0,0,0,.25);
+    0 8px 25px rgba(0,0,0,.3);
 }
 
 .product-card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-9px);
+
   border-color:#e5bd5b;
 
   box-shadow:
-    0 15px 40px rgba(229,189,91,.12);
+    0 18px 45px rgba(229,189,91,.14);
 }
 
 .product-card img{
   width:100%;
   height:240px;
-  object-fit:cover;
+
+  object-fit:contain;
+
   border-radius:12px;
+
   display:block;
+
   background:#111;
+
   transition:.4s ease;
 }
 
 .product-card:hover img{
-  transform:scale(1.03);
+  transform:scale(1.04);
 }
 
 .product-card h3{
   margin-top:15px;
+
   font-size:18px;
   font-weight:600;
 }
 
 .price{
   color:#e5bd5b;
+
   font-size:23px;
+
   font-weight:800;
+
   margin-top:3px;
 }
 
+
 /* =========================
-   SHOWCASE
+   COLLECTION
 ========================= */
 
 .showcase{
   max-width:1150px;
   margin:auto;
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
   gap:20px;
 }
 
 .showcase img{
   width:100%;
+
   height:300px;
-  object-fit:cover;
+
+  object-fit:contain;
+
   border-radius:15px;
+
   border:1px solid #292929;
+
   display:block;
-  transition:.4s ease;
+
   background:#111;
+
+  transition:.4s ease;
 }
 
 .showcase img:hover{
   transform:scale(1.025);
+
   border-color:#e5bd5b;
-  box-shadow:0 12px 35px rgba(229,189,91,.12);
+
+  box-shadow:
+    0 12px 35px rgba(229,189,91,.15);
 }
+
 
 /* =========================
    ORDER
@@ -508,9 +629,13 @@ section{
 .order-box{
   max-width:900px;
   margin:auto;
-  border:1px solid #333;
-  border-radius:18px;
+
   padding:28px;
+
+  border:1px solid #333;
+
+  border-radius:18px;
+
   background:
     linear-gradient(
       145deg,
@@ -524,56 +649,88 @@ section{
 
 .form-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:15px;
 }
 
 input,
 select,
 textarea{
+
   width:100%;
+
   background:#111;
+
   color:#fff;
+
   border:1px solid #383838;
+
   border-radius:9px;
+
   padding:14px;
+
   outline:none;
+
   font-family:"Inter",sans-serif;
+
   transition:.25s ease;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
+
   border-color:#e5bd5b;
-  box-shadow:0 0 0 3px rgba(229,189,91,.07);
+
+  box-shadow:
+    0 0 0 3px rgba(229,189,91,.07);
 }
 
 textarea{
   min-height:110px;
+
   margin-top:15px;
+
   resize:vertical;
 }
 
 .order-btn{
+
   width:100%;
+
   margin-top:15px;
+
   padding:16px;
+
   background:#e5bd5b;
+
   color:#111;
+
   border:0;
+
   border-radius:9px;
+
   font-size:15px;
+
   font-weight:800;
+
   cursor:pointer;
+
   transition:.3s ease;
 }
 
 .order-btn:hover{
+
   background:#f2cf72;
+
   transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(229,189,91,.2);
+
+  box-shadow:
+    0 10px 25px rgba(229,189,91,.2);
 }
+
 
 /* =========================
    CONTACT
@@ -584,75 +741,118 @@ textarea{
 }
 
 .contact-buttons{
+
   display:flex;
+
   justify-content:center;
+
   gap:15px;
+
   flex-wrap:wrap;
+
   margin-top:25px;
 }
 
 .contact-btn{
+
   min-width:230px;
+
   padding:14px 25px;
+
   border:1px solid #444;
+
   border-radius:9px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:10px;
+
   transition:.3s ease;
 }
 
 .contact-btn:hover{
+
   border-color:#e5bd5b;
+
   color:#e5bd5b;
+
   transform:translateY(-3px);
 }
 
 .instagram-icon{
+
   width:20px;
   height:20px;
+
   display:block;
 }
 
 .whatsapp-number{
+
   margin-top:18px;
+
   color:#e5bd5b;
+
   font-size:17px;
 }
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer{
+
   text-align:center;
+
   padding:28px 20px;
+
   border-top:1px solid #292929;
+
   color:#888;
+
   font-size:13px;
 }
+
 
 /* =========================
    FLOATING WHATSAPP
 ========================= */
 
 .whatsapp{
+
   position:fixed;
+
   right:20px;
   bottom:20px;
+
   width:58px;
   height:58px;
+
   border-radius:50%;
+
   background:#25D366;
-  color:white;
+
+  color:#fff;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   font-size:27px;
+
   z-index:100;
-  box-shadow:0 5px 25px rgba(0,0,0,.55);
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,.55);
+
   transition:.3s ease;
+
   animation:whatsappPulse 2s infinite;
 }
 
@@ -663,18 +863,22 @@ footer{
 @keyframes whatsappPulse{
 
   0%{
-    box-shadow:0 0 0 0 rgba(37,211,102,.35);
+    box-shadow:
+      0 0 0 0 rgba(37,211,102,.4);
   }
 
   70%{
-    box-shadow:0 0 0 14px rgba(37,211,102,0);
+    box-shadow:
+      0 0 0 14px rgba(37,211,102,0);
   }
 
   100%{
-    box-shadow:0 0 0 0 rgba(37,211,102,0);
+    box-shadow:
+      0 0 0 0 rgba(37,211,102,0);
   }
 
 }
+
 
 /* =========================
    MOBILE
@@ -683,11 +887,14 @@ footer{
 @media(max-width:650px){
 
   .nav{
+
     min-height:62px;
+
     padding:6px 12px;
   }
 
   .nav-logo img{
+
     width:42px;
     height:42px;
   }
@@ -697,17 +904,23 @@ footer{
   }
 
   .navlinks{
+
     gap:10px;
+
     font-size:10px;
   }
 
   .hero{
+
     min-height:78vh;
+
     padding:70px 18px;
   }
 
   .hero h1{
+
     font-size:52px;
+
     letter-spacing:3px;
   }
 
@@ -716,7 +929,9 @@ footer{
   }
 
   .badge{
+
     font-size:9px;
+
     letter-spacing:1.5px;
   }
 
@@ -733,12 +948,16 @@ footer{
   }
 
   .product-card img{
+
     height:220px;
   }
 
   .showcase img{
+
     height:auto;
+
     max-height:380px;
+
     object-fit:contain;
   }
 
@@ -747,22 +966,27 @@ footer{
   }
 
   .whatsapp{
+
     right:15px;
     bottom:15px;
+
     width:54px;
     height:54px;
   }
 
 }
 
+
 /* =========================
-   VERY SMALL PHONES
+   SMALL PHONES
 ========================= */
 
 @media(max-width:380px){
 
   .navlinks{
+
     gap:7px;
+
     font-size:9px;
   }
 
@@ -780,6 +1004,7 @@ footer{
 
 </head>
 
+
 <body>
 
 
@@ -790,6 +1015,12 @@ footer{
 <div id="welcome">
 
   <div class="welcome-content">
+
+    <img
+      class="welcome-logo"
+      src="/logo.jpg"
+      alt="STUDIO 42 Logo"
+    >
 
     <div class="welcome-small">
       WELCOME TO
@@ -832,9 +1063,13 @@ footer{
     <div class="navlinks">
 
       <a href="#home">Home</a>
+
       <a href="#prints">Prints</a>
+
       <a href="#frames">Frames</a>
+
       <a href="#order">Order</a>
+
       <a href="#contact">Contact</a>
 
     </div>
@@ -867,11 +1102,17 @@ footer{
 
     <div class="buttons">
 
-      <a href="#prints" class="btn btn-gold">
+      <a
+        href="#prints"
+        class="btn btn-gold"
+      >
         VIEW PRICE LIST
       </a>
 
-      <a href="#order" class="btn btn-dark">
+      <a
+        href="#order"
+        class="btn btn-dark"
+      >
         ORDER NOW
       </a>
 
@@ -888,7 +1129,9 @@ footer{
 
 <div class="offer">
 
-  <h2>✨ BUY 2 GET 1 FREE ✨</h2>
+  <h2>
+    ✨ BUY 2 GET 1 FREE ✨
+  </h2>
 
   <p>
     Make more memories. Pay for two and get one extra print free.
@@ -910,14 +1153,19 @@ footer{
   <div class="product-grid">
 
 
+    <!-- POLAROIDS -->
+
     <div class="product-card">
 
       <img
         src="/Polaroids-small.jpg"
         alt="Polaroid Prints"
+        loading="lazy"
       >
 
-      <h3>Polaroid Prints</h3>
+      <h3>
+        Polaroid Prints
+      </h3>
 
       <div class="price">
         ₹10
@@ -926,14 +1174,19 @@ footer{
     </div>
 
 
+    <!-- MINI POSTER -->
+
     <div class="product-card">
 
       <img
         src="/mini-poster.jpeg"
         alt="Mini Poster"
+        loading="lazy"
       >
 
-      <h3>Mini Poster</h3>
+      <h3>
+        Mini Poster
+      </h3>
 
       <div class="price">
         ₹15
@@ -942,14 +1195,19 @@ footer{
     </div>
 
 
+    <!-- A4 POSTER -->
+
     <div class="product-card">
 
       <img
-        src="/A4-Poster.jpeg"
+        src="/A4-poster.jpeg"
         alt="A4 Poster"
+        loading="lazy"
       >
 
-      <h3>A4 Poster</h3>
+      <h3>
+        A4 Poster
+      </h3>
 
       <div class="price">
         ₹30
@@ -958,14 +1216,19 @@ footer{
     </div>
 
 
+    <!-- A3 POSTER -->
+
     <div class="product-card">
 
       <img
         src="/a3-poster.jpeg"
         alt="A3 Poster"
+        loading="lazy"
       >
 
-      <h3>A3 Poster</h3>
+      <h3>
+        A3 Poster
+      </h3>
 
       <div class="price">
         ₹50
@@ -974,21 +1237,25 @@ footer{
     </div>
 
 
+    <!-- SPLIT POSTER -->
+
     <div class="product-card">
 
       <img
-        src="/split-poster.jpg"
+        src="/spilt-poster.jpg"
         alt="Split Poster"
+        loading="lazy"
       >
 
-      <h3>Split Poster</h3>
+      <h3>
+        Split Poster
+      </h3>
 
       <div class="price">
         ₹100
       </div>
 
     </div>
-
 
   </div>
 
@@ -1008,14 +1275,19 @@ footer{
   <div class="product-grid">
 
 
+    <!-- 4 X 4 -->
+
     <div class="product-card">
 
       <img
         src="/4×4-frame.jpg"
         alt="4 x 4 Frame"
+        loading="lazy"
       >
 
-      <h3>4 × 4 Frame</h3>
+      <h3>
+        4 × 4 Frame
+      </h3>
 
       <div class="price">
         ₹120
@@ -1024,14 +1296,19 @@ footer{
     </div>
 
 
+    <!-- 8 X 6 -->
+
     <div class="product-card">
 
       <img
-        src="/4×6'frame.jpeg"
+        src="/4×6-frame.jpeg"
         alt="8 x 6 Frame"
+        loading="lazy"
       >
 
-      <h3>8 × 6 Frame</h3>
+      <h3>
+        8 × 6 Frame
+      </h3>
 
       <div class="price">
         ₹180
@@ -1040,14 +1317,19 @@ footer{
     </div>
 
 
+    <!-- A4 FRAME -->
+
     <div class="product-card">
 
       <img
         src="/frame-a4.jpeg"
         alt="A4 Frame"
+        loading="lazy"
       >
 
-      <h3>A4 Frame</h3>
+      <h3>
+        A4 Frame
+      </h3>
 
       <div class="price">
         ₹300
@@ -1056,21 +1338,25 @@ footer{
     </div>
 
 
+    <!-- A3 FRAME -->
+
     <div class="product-card">
 
       <img
         src="/frame-a3.jpeg"
         alt="A3 Frame"
+        loading="lazy"
       >
 
-      <h3>A3 Frame</h3>
+      <h3>
+        A3 Frame
+      </h3>
 
       <div class="price">
         ₹500
       </div>
 
     </div>
-
 
   </div>
 
@@ -1092,16 +1378,19 @@ footer{
     <img
       src="/poster-showcase.jpg"
       alt="Poster Collection"
+      loading="lazy"
     >
 
     <img
       src="/A4-poster.jpeg"
       alt="A4 Poster"
+      loading="lazy"
     >
 
     <img
-      src="/Polaroid-small.jpg"
+      src="/Polaroids-small.jpg"
       alt="Polaroid Collection"
+      loading="lazy"
     >
 
   </div>
@@ -1144,16 +1433,41 @@ footer{
           Select Product
         </option>
 
-        <option>Polaroid - ₹10</option>
-        <option>Mini Poster - ₹15</option>
-        <option>A4 Poster - ₹30</option>
-        <option>A3 Poster - ₹50</option>
-        <option>Split Poster - ₹100</option>
+        <option>
+          Polaroid - ₹10
+        </option>
 
-        <option>4 × 4 Frame - ₹120</option>
-        <option>8 × 6 Frame - ₹180</option>
-        <option>A4 Frame - ₹300</option>
-        <option>A3 Frame - ₹500</option>
+        <option>
+          Mini Poster - ₹15
+        </option>
+
+        <option>
+          A4 Poster - ₹30
+        </option>
+
+        <option>
+          A3 Poster - ₹50
+        </option>
+
+        <option>
+          Split Poster - ₹100
+        </option>
+
+        <option>
+          4 × 4 Frame - ₹120
+        </option>
+
+        <option>
+          8 × 6 Frame - ₹180
+        </option>
+
+        <option>
+          A4 Frame - ₹300
+        </option>
+
+        <option>
+          A3 Frame - ₹500
+        </option>
 
       </select>
 
@@ -1198,7 +1512,10 @@ footer{
      CONTACT
 ========================= -->
 
-<section id="contact" class="contact">
+<section
+  id="contact"
+  class="contact"
+>
 
   <h2 class="section-title">
     Contact <span>STUDIO 42</span>
@@ -1208,12 +1525,13 @@ footer{
   <div class="contact-buttons">
 
 
+    <!-- INSTAGRAM -->
+
     <a
       class="contact-btn"
       href="https://www.instagram.com/_.studio_42/"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Open STUDIO 42 Instagram"
     >
 
       <svg
@@ -1257,6 +1575,8 @@ footer{
     </a>
 
 
+    <!-- WHATSAPP -->
+
     <a
       class="contact-btn"
       href="https://wa.me/919087472456"
@@ -1265,7 +1585,6 @@ footer{
     >
       💬 WhatsApp
     </a>
-
 
   </div>
 
@@ -1284,6 +1603,7 @@ footer{
 <footer>
 
   STUDIO 42 © 2026<br>
+
   Premium Prints & Creative Designs
 
 </footer>
@@ -1295,4 +1615,87 @@ footer{
 
 <a
   class="whatsapp"
-  href="
+  href="https://wa.me/919087472456"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with STUDIO 42 on WhatsApp"
+>
+  💬
+</a>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function sendOrder(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const product =
+    document.getElementById("product").value;
+
+  const quantity =
+    document.getElementById("quantity").value;
+
+  const requirements =
+    document
+      .getElementById("requirements")
+      .value
+      .trim();
+
+
+  if(!name || !phone || !product){
+
+    alert(
+      "Please fill Name, WhatsApp Number and Product."
+    );
+
+    return;
+  }
+
+
+  const message =
+`STUDIO 42 - NEW ORDER
+
+Customer Name:
+${name}
+
+Customer WhatsApp:
+${phone}
+
+Product:
+${product}
+
+Quantity:
+${quantity}
+
+Requirements:
+${requirements || "None"}
+
+Please confirm my order.`;
+
+
+  const whatsappURL =
+    "https://wa.me/919087472456?text="
+    + encodeURIComponent(message);
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+</script>
+
+
+</body>
+         </html>
