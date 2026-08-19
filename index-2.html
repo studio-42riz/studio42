@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PAPA FOODS | Digital Menu</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#151515;overflow-x:hidden}
+.loader{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:.7s}
+.loader img{width:170px;animation:pulse 1.3s infinite}
+.loader p{color:#d71920;margin-top:15px;font-size:11px;letter-spacing:3px}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.7}}
+
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.94);backdrop-filter:blur(15px);border-bottom:2px solid #eee}
+.logo{height:48px;width:auto}
+.call-btn{text-decoration:none;background:#d71920;color:#fff;padding:11px 16px;border-radius:30px;font-size:12px;font-weight:bold}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 20px 70px;background:linear-gradient(rgba(255,255,255,.84),rgba(255,255,255,.96)),url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=90") center/cover}
+.hero-content{max-width:850px;animation:heroIn 1.2s ease}
+@keyframes heroIn{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+.hero-logo{width:190px;max-width:65%;margin-bottom:20px}
+.badge{display:inline-block;color:#d71920;border:2px solid #d71920;padding:8px 15px;border-radius:30px;font-size:10px;letter-spacing:2px;margin-bottom:20px}
+.hero h1{font-size:clamp(50px,13vw,90px);line-height:.9;font-weight:1000;color:#151515}
+.hero h1 span{color:#d71920}
+.hero p{max-width:550px;margin:22px auto;color:#555;line-height:1.7}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 23px;border-radius:30px;text-decoration:none;font-weight:bold;transition:.3s}
+.btn:hover{transform:translateY(-5px) scale(1.03)}
+.red{background:#d71920;color:#fff}
+.dark{background:#151515;color:#fff}
+.white-btn{background:#fff;color:#d71920;border:2px solid #d71920}
+
+section{padding:75px 18px}
+.menu-section{background:#f7f7f7}
+.title{text-align:center;margin-bottom:30px}
+.title small{color:#d71920;letter-spacing:3px;font-size:10px;font-weight:bold}
+.title h2{font-size:38px;margin-top:8px;color:#151515}
+.categories{display:flex;gap:10px;max-width:1150px;margin:auto;overflow-x:auto;padding-bottom:20px}
+.categories::-webkit-scrollbar{display:none}
+.category{flex-shrink:0;padding:11px 18px;border-radius:30px;background:#fff;border:2px solid #ddd;color:#222;cursor:pointer;font-weight:bold}
+.category.active,.category:hover{background:#d71920;color:#fff;border-color:#d71920}
+
+.food-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.food-card{background:#fff;border:1px solid #e5e5e5;border-radius:22px;overflow:hidden;transition:.4s;box-shadow:0 8px 25px rgba(0,0,0,.07)}
+.food-card:hover{transform:translateY(-8px);border-color:#d71920;box-shadow:0 18px 40px rgba(215,25,32,.15)}
+.food-img{height:210px;position:relative;overflow:hidden}
+.food-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.food-card:hover img{transform:scale(1.08)}
+.offer{position:absolute;top:14px;left:14px;z-index:2;background:#d71920;color:#fff;padding:7px 11px;border-radius:20px;font-size:10px;font-weight:bold}
+.food-info{padding:19px}
+.food-info h3{font-size:19px}
+.food-info p{color:#777;font-size:13px;line-height:1.5;margin:8px 0 17px}
+.food-bottom{display:flex;justify-content:space-between;align-items:center}
+.price{color:#d71920;font-size:21px;font-weight:bold}
+.order{text-decoration:none;background:#d71920;color:#fff;padding:9px 14px;border-radius:20px;font-size:11px;font-weight:bold}
+
+.special{text-align:center;background:linear-gradient(rgba(215,25,32,.9),rgba(180,10,15,.94)),url("https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=90") center/cover;color:#fff}
+.special small{color:#fff;letter-spacing:3px;font-weight:bold}
+.special h2{font-size:45px;color:#fff;margin:10px 0}
+.special p{max-width:600px;margin:0 auto 25px;color:#fff;line-height:1.6}
+.special .red{background:#fff;color:#d71920}
+
+.features{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+.feature{background:#fff;border:1px solid #e4e4e4;border-radius:20px;padding:25px 15px;text-align:center;transition:.3s;box-shadow:0 6px 20px rgba(0,0,0,.05)}
+.feature:hover{transform:translateY(-6px);border-color:#d71920}
+.icon{font-size:35px;margin-bottom:10px}
+.feature h3{color:#d71920;margin-bottom:7px}
+.feature p{color:#777;font-size:13px}
+
+.contact{background:#f5f5f5;text-align:center}
+.contact-box{max-width:700px;margin:auto;padding:38px 20px;background:#fff;border:2px solid #eee;border-radius:25px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.contact-box h2{font-size:35px}
+.contact-box p{color:#777;margin:10px 0 25px}
+.contact-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.call{background:#151515;color:#fff}
+.whatsapp{background:#25D366;color:#000}
+
+.whatsapp-float{position:fixed;right:18px;bottom:82px;width:60px;height:60px;border-radius:50%;background:#25D366;color:#000;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:3000;animation:float 2s infinite;box-shadow:0 8px 30px rgba(37,211,102,.35)}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+.sticky{position:fixed;bottom:0;left:0;width:100%;z-index:2500;background:rgba(255,255,255,.96);padding:9px;border-top:1px solid #ddd}
+.sticky a{display:block;max-width:500px;margin:auto;text-align:center;padding:14px;border-radius:30px;background:#d71920;color:#fff;text-decoration:none;font-weight:1000}
+footer{text-align:center;padding:35px 15px 90px;background:#151515;color:#aaa;font-size:12px}
+footer strong{color:#fff}
+
+@media(max-width:600px){
+.hero h1{font-size:55px}.hero-logo{width:155px}.food-grid{grid-template-columns:1fr}.food-img{height:235px}.special h2{font-size:36px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+<img src="Papa foods logo.png" alt="Papa Foods">
+<p>PREPARING SOMETHING DELICIOUS...</p>
+</div>
+
+<header>
+<img class="logo" src="Papa foods logo.png" alt="Papa Foods">
+<a href="tel:9087472456" class="call-btn">📞 CALL NOW</a>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<img class="hero-logo" src="Papa foods logo.png" alt="Papa Foods Logo">
+<div class="badge">🔥 PREMIUM FOOD EXPERIENCE</div>
+<h1>TASTE<br><span>THE MAGIC</span></h1>
+<p>Fresh ingredients. Bold flavours. Delicious food prepared with passion and served with love.</p>
+<div class="buttons">
+<a href="#menu" class="btn red">🍽️ EXPLORE MENU</a>
+<a href="tel:9087472456" class="btn dark">📞 CALL NOW</a>
+</div>
+</div>
+</section>
+
+<section id="menu" class="menu-section">
+<div class="title">
+<small>OUR SIGNATURE MENU</small>
+<h2>🔥 Popular Picks</h2>
+</div>
+
+<div class="categories">
+<button class="category active" data-cat="all">All</button>
+<button class="category" data-cat="pizza">🍕 Pizza</button>
+<button class="category" data-cat="burger">🍔 Burger</button>
+<button class="category" data-cat="chicken">🍗 Chicken</button>
+<button class="category" data-cat="pasta">🍝 Pasta</button>
+<button class="category" data-cat="drinks">🥤 Drinks</button>
+<button class="category" data-cat="dessert">🍰 Dessert</button>
+</div>
+
+<div class="food-grid">
+
+<div class="food-card" data-cat="pizza"><div class="food-img"><span class="offer">BEST SELLER 🔥</span><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=90" alt="Loaded Cheese Pizza"></div><div class="food-info"><h3>Loaded Cheese Pizza</h3><p>Loaded with cheese, fresh toppings and rich flavour.</p><div class="food-bottom"><div class="price">₹249</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Loaded%20Cheese%20Pizza">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="pizza"><div class="food-img"><span class="offer">HOT 🔥</span><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=90" alt="Pepperoni Pizza"></div><div class="food-info"><h3>Pepperoni Pizza</h3><p>Classic cheesy pizza topped with spicy pepperoni.</p><div class="food-bottom"><div class="price">₹299</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Pepperoni%20Pizza">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="burger"><div class="food-img"><span class="offer">POPULAR ❤️</span><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=90" alt="Classic Burger"></div><div class="food-info"><h3>Classic Burger</h3><p>Juicy patty, fresh vegetables and special sauce.</p><div class="food-bottom"><div class="price">₹199</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Classic%20Burger">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="burger"><div class="food-img"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=900&q=90" alt="Double Cheese Burger"></div><div class="food-info"><h3>Double Cheese Burger</h3><p>Double patty with melted cheese and signature sauce.</p><div class="food-bottom"><div class="price">₹279</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Double%20Cheese%20Burger">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="chicken"><div class="food-img"><span class="offer">CHEF'S PICK 👨‍🍳</span><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=90" alt="Spicy Fried Chicken"></div><div class="food-info"><h3>Spicy Fried Chicken</h3><p>Crispy outside, juicy inside and full of flavour.</p><div class="food-bottom"><div class="price">₹229</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Spicy%20Fried%20Chicken">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="chicken"><div class="food-img"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=90" alt="Chicken Wings"></div><div class="food-info"><h3>Peri Peri Chicken Wings</h3><p>Juicy wings tossed in a bold spicy peri peri glaze.</p><div class="food-bottom"><div class="price">₹249</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Peri%20Peri%20Chicken%20Wings">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="pasta"><div class="food-img"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=900&q=90" alt="Creamy Pasta"></div><div class="food-info"><h3>Creamy Pasta</h3><p>Rich creamy sauce with perfectly cooked pasta.</p><div class="food-bottom"><div class="price">₹179</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Creamy%20Pasta">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="pasta"><div class="food-img"><span class="offer">NEW ✨</span><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=90" alt="Penne Arrabbiata"></div><div class="food-info"><h3>Penne Arrabbiata</h3><p>Penne pasta in a rich, spicy tomato and herb sauce.</p><div class="food-bottom"><div class="price">₹189</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Penne%20Arrabbiata">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="drinks"><div class="food-img"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=90" alt="Cold Coffee"></div><div class="food-info"><h3>Cold Coffee</h3><p>Chilled creamy coffee, perfect with any meal.</p><div class="food-bottom"><div class="price">₹99</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Cold%20Coffee">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="drinks"><div class="food-img"><img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=900&q=90" alt="Fresh Lime Soda"></div><div class="food-info"><h3>Fresh Lime Soda</h3><p>Refreshing chilled lime soda with a zesty kick.</p><div class="food-bottom"><div class="price">₹79</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Fresh%20Lime%20Soda">ORDER</a></div></div></div>
+
+<div class="food-card" data-cat="dessert"><div class="food-img"><span class="offer">SWEET ❤️</span><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=90" alt="Chocolate Cake"></div><div class="food-info"><h3>Chocolate Cake</h3><p>Soft, rich chocolate cake with a delicious creamy finish.</p><div class="food-bottom"><div class="price">₹149</div><a class="order" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20order%20Chocolate%20Cake">ORDER</a></div></div></div>
+
+</div>
+</section>
+
+<section class="special">
+<small>LIMITED TIME OFFER</small>
+<h2>🔥 FAMILY FEAST</h2>
+<p>Bring everyone together and enjoy a delicious feast packed with flavour.</p>
+<a href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20know%20about%20the%20Family%20Feast%20offer" class="btn red">CLAIM OFFER</a>
+</section>
+
+<section>
+<div class="title"><small>WHY PAPA FOODS?</small><h2>Made Different ❤️</h2></div>
+<div class="features">
+<div class="feature"><div class="icon">🥘</div><h3>Fresh Food</h3><p>Fresh ingredients prepared with care.</p></div>
+<div class="feature"><div class="icon">👨‍🍳</div><h3>Expert Chefs</h3><p>Recipes crafted by passionate chefs.</p></div>
+<div class="feature"><div class="icon">⚡</div><h3>Fast Service</h3><p>Quick service without compromising taste.</p></div>
+<div class="feature"><div class="icon">❤️</div><h3>Made With Love</h3><p>Every plate is prepared with passion.</p></div>
+</div>
+</section>
+
+<section class="contact">
+<div class="contact-box">
+<h2>Hungry Yet? 😋</h2>
+<p>Call us or order directly through WhatsApp.</p>
+<div class="contact-buttons">
+<a href="tel:9087472456" class="btn call">📞 CALL 9087472456</a>
+<a href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20place%20an%20order" class="btn whatsapp">💬 WHATSAPP ORDER</a>
+</div>
+</div>
+</section>
+
+<a class="whatsapp-float" href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20place%20an%20order">💬</a>
+
+<div class="sticky"><a href="https://wa.me/919087472456?text=Hi%20Papa%20Foods,%20I%20want%20to%20place%20an%20order">🔥 ORDER NOW ON WHATSAPP</a></div>
+
+<footer>© 2026 <strong>PAPA FOODS</strong><br><br>Premium Digital Menu Experience</footer>
+
+<script>
+window.addEventListener("load",function(){
+setTimeout(function(){
+const loader=document.getElementById("loader");
+loader.style.opacity="0";
+setTimeout(function(){loader.style.display="none"},700);
+},1200);
+});
+
+document.querySelectorAll(".category").forEach(function(button){
+button.addEventListener("click",function(){
+document.querySelectorAll(".category").forEach(function(item){item.classList.remove("active")});
+this.classList.add("active");
+const cat=this.dataset.cat;
+document.querySelectorAll(".food-card").forEach(function(card){
+card.style.display=(cat==="all"||card.dataset.cat===cat)?"block":"none";
+});
+});
+});
+</script>
+</body>
+</html>
