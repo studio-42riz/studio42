@@ -19,10 +19,6 @@ rel="stylesheet">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
   margin:0;
   padding:0;
@@ -51,10 +47,6 @@ a{
   color:#000;
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
-
 ::-webkit-scrollbar{
   width:7px;
 }
@@ -68,9 +60,7 @@ a{
   border-radius:10px;
 }
 
-/* =========================
-   WELCOME
-========================= */
+/* WELCOME */
 
 #welcome{
   position:fixed;
@@ -129,6 +119,7 @@ a{
     opacity:0;
     transform:scale(.7);
   }
+
   to{
     opacity:1;
     transform:scale(1);
@@ -142,9 +133,7 @@ a{
   }
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 
 header{
   position:sticky;
@@ -184,12 +173,6 @@ header{
   border-radius:10px;
 
   filter:drop-shadow(0 0 10px rgba(229,189,91,.2));
-  transition:.3s ease;
-}
-
-.nav-logo img:hover{
-  transform:scale(1.08);
-  filter:drop-shadow(0 0 20px rgba(229,189,91,.5));
 }
 
 .logo-text{
@@ -211,22 +194,8 @@ header{
 }
 
 .navlinks a{
-  position:relative;
   color:#ddd;
   padding:8px 0;
-  transition:.3s ease;
-}
-
-.navlinks a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-
-  width:0;
-  height:2px;
-
-  background:#e5bd5b;
   transition:.3s ease;
 }
 
@@ -234,13 +203,7 @@ header{
   color:#e5bd5b;
 }
 
-.navlinks a:hover::after{
-  width:100%;
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   min-height:86vh;
@@ -265,36 +228,6 @@ header{
     );
 }
 
-.hero::before{
-  content:"";
-
-  position:absolute;
-
-  width:500px;
-  height:500px;
-
-  border-radius:50%;
-
-  background:rgba(229,189,91,.08);
-
-  filter:blur(90px);
-
-  animation:heroGlow 5s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow{
-
-  from{
-    transform:scale(.8);
-    opacity:.4;
-  }
-
-  to{
-    transform:scale(1.2);
-    opacity:.8;
-  }
-}
-
 .hero-content{
   max-width:850px;
   position:relative;
@@ -315,8 +248,6 @@ header{
   letter-spacing:2px;
 
   background:rgba(229,189,91,.04);
-
-  box-shadow:0 0 25px rgba(229,189,91,.06);
 }
 
 .hero h1{
@@ -329,21 +260,6 @@ header{
   margin:28px 0;
 
   letter-spacing:5px;
-
-  text-shadow:0 0 35px rgba(229,189,91,.12);
-
-  animation:titleFloat 4s ease-in-out infinite;
-}
-
-@keyframes titleFloat{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-5px);
-  }
 }
 
 .hero h1 span{
@@ -383,16 +299,11 @@ header{
 .btn-gold{
   background:#e5bd5b;
   color:#111;
-
-  box-shadow:0 8px 25px rgba(229,189,91,.15);
 }
 
 .btn-gold:hover{
   transform:translateY(-4px);
-
   background:#f3d176;
-
-  box-shadow:0 12px 35px rgba(229,189,91,.3);
 }
 
 .btn-dark{
@@ -404,9 +315,7 @@ header{
   background:#181818;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
   padding:75px 5%;
@@ -426,9 +335,7 @@ section{
   color:#e5bd5b;
 }
 
-/* =========================
-   OFFER
-========================= */
+/* OFFER */
 
 .offer{
   max-width:1050px;
@@ -449,23 +356,6 @@ section{
       #211a08,
       #100e08
     );
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.4),
-    inset 0 0 30px rgba(229,189,91,.04);
-
-  animation:offerGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes offerGlow{
-
-  from{
-    box-shadow:0 10px 40px rgba(0,0,0,.4);
-  }
-
-  to{
-    box-shadow:0 10px 45px rgba(229,189,91,.12);
-  }
 }
 
 .offer h2{
@@ -481,9 +371,7 @@ section{
   margin-top:5px;
 }
 
-/* =========================
-   PRODUCT GRID
-========================= */
+/* PRODUCTS */
 
 .product-grid{
   max-width:1150px;
@@ -514,16 +402,12 @@ section{
   overflow:hidden;
 
   transition:.35s ease;
-
-  box-shadow:0 8px 25px rgba(0,0,0,.3);
 }
 
 .product-card:hover{
   transform:translateY(-9px);
 
   border-color:#e5bd5b;
-
-  box-shadow:0 18px 45px rgba(229,189,91,.14);
 }
 
 .product-card img{
@@ -537,12 +421,6 @@ section{
   display:block;
 
   background:#111;
-
-  transition:.4s ease;
-}
-
-.product-card:hover img{
-  transform:scale(1.04);
 }
 
 .product-card h3{
@@ -562,9 +440,7 @@ section{
   margin-top:3px;
 }
 
-/* =========================
-   COLLECTION
-========================= */
+/* COLLECTION */
 
 .showcase{
   max-width:1150px;
@@ -592,21 +468,9 @@ section{
   display:block;
 
   background:#111;
-
-  transition:.4s ease;
 }
 
-.showcase img:hover{
-  transform:scale(1.025);
-
-  border-color:#e5bd5b;
-
-  box-shadow:0 12px 35px rgba(229,189,91,.15);
-}
-
-/* =========================
-   ORDER
-========================= */
+/* ORDER */
 
 .order-box{
   max-width:900px;
@@ -624,8 +488,6 @@ section{
       #101010,
       #090909
     );
-
-  box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
 
 .form-grid{
@@ -655,8 +517,6 @@ textarea{
   outline:none;
 
   font-family:"Inter",sans-serif;
-
-  transition:.25s ease;
 }
 
 input:focus,
@@ -669,22 +529,12 @@ textarea:focus{
     0 0 0 3px rgba(229,189,91,.07);
 }
 
-input[type="file"]{
-  cursor:pointer;
-}
-
 textarea{
   min-height:110px;
 
   margin-top:15px;
 
   resize:vertical;
-}
-
-.photo-note{
-  color:#888;
-  font-size:12px;
-  margin-top:7px;
 }
 
 .order-btn{
@@ -722,15 +572,7 @@ textarea{
     0 10px 25px rgba(229,189,91,.2);
 }
 
-.order-btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-  transform:none;
-}
-
-/* =========================
-   CONTACT
-========================= */
+/* CONTACT */
 
 .contact{
   text-align:center;
@@ -796,9 +638,7 @@ textarea{
   font-size:17px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
 
@@ -813,9 +653,7 @@ footer{
   font-size:13px;
 }
 
-/* =========================
-   FLOATING WHATSAPP
-========================= */
+/* WHATSAPP */
 
 .whatsapp{
 
@@ -845,35 +683,13 @@ footer{
   box-shadow:0 5px 25px rgba(0,0,0,.55);
 
   transition:.3s ease;
-
-  animation:whatsappPulse 2s infinite;
 }
 
 .whatsapp:hover{
   transform:scale(1.1);
 }
 
-@keyframes whatsappPulse{
-
-  0%{
-    box-shadow:
-      0 0 0 0 rgba(37,211,102,.4);
-  }
-
-  70%{
-    box-shadow:
-      0 0 0 14px rgba(37,211,102,0);
-  }
-
-  100%{
-    box-shadow:
-      0 0 0 0 rgba(37,211,102,0);
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:650px){
 
@@ -910,11 +726,6 @@ footer{
     font-size:14px;
   }
 
-  .badge{
-    font-size:9px;
-    letter-spacing:1.5px;
-  }
-
   section{
     padding:55px 5%;
   }
@@ -934,7 +745,6 @@ footer{
   .showcase img{
     height:auto;
     max-height:380px;
-    object-fit:contain;
   }
 
   .order-box{
@@ -950,10 +760,6 @@ footer{
   }
 
 }
-
-/* =========================
-   SMALL PHONES
-========================= */
 
 @media(max-width:380px){
 
@@ -978,9 +784,7 @@ footer{
 
 <body>
 
-<!-- =========================
-     WELCOME
-========================= -->
+<!-- WELCOME -->
 
 <div id="welcome">
 
@@ -1008,9 +812,8 @@ footer{
 
 </div>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+
+<!-- NAVBAR -->
 
 <header>
 
@@ -1043,9 +846,8 @@ footer{
 
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -1086,9 +888,8 @@ footer{
 
 </section>
 
-<!-- =========================
-     OFFER
-========================= -->
+
+<!-- OFFER -->
 
 <div class="offer">
 
@@ -1102,9 +903,8 @@ footer{
 
 </div>
 
-<!-- =========================
-     PRINTS
-========================= -->
+
+<!-- PRINTS -->
 
 <section id="prints">
 
@@ -1115,57 +915,85 @@ footer{
   <div class="product-grid">
 
     <div class="product-card">
-      <img src="/Polaroids-small .jpg"
-           alt="Polaroid Prints"
-           loading="lazy">
+
+      <img
+        src="/Polaroids-small .jpg"
+        alt="Polaroid Prints"
+        loading="lazy"
+      >
 
       <h3>Polaroid Prints</h3>
+
       <div class="price">₹10</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/mini-poster.jpeg"
-           alt="Mini Poster"
-           loading="lazy">
+
+      <img
+        src="/mini-poster.jpeg"
+        alt="Mini Poster"
+        loading="lazy"
+      >
 
       <h3>Mini Poster</h3>
+
       <div class="price">₹15</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/A4-poster .jpeg"
-           alt="A4 Poster"
-           loading="lazy">
+
+      <img
+        src="/A4-poster .jpeg"
+        alt="A4 Poster"
+        loading="lazy"
+      >
 
       <h3>A4 Poster</h3>
+
       <div class="price">₹30</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/a3-poster.jpeg"
-           alt="A3 Poster"
-           loading="lazy">
+
+      <img
+        src="/a3-poster.jpeg"
+        alt="A3 Poster"
+        loading="lazy"
+      >
 
       <h3>A3 Poster</h3>
+
       <div class="price">₹50</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/spilt-poster .jpg"
-           alt="Split Poster"
-           loading="lazy">
+
+      <img
+        src="/spilt-poster .jpg"
+        alt="Split Poster"
+        loading="lazy"
+      >
 
       <h3>Split Poster</h3>
+
       <div class="price">₹100</div>
+
     </div>
 
   </div>
 
 </section>
 
-<!-- =========================
-     FRAMES
-========================= -->
+
+<!-- FRAMES -->
 
 <section id="frames">
 
@@ -1176,48 +1004,70 @@ footer{
   <div class="product-grid">
 
     <div class="product-card">
-      <img src="/4×4-frame.jpg"
-           alt="4 x 4 Frame"
-           loading="lazy">
+
+      <img
+        src="/4×4-frame.jpg"
+        alt="4 x 4 Frame"
+        loading="lazy"
+      >
 
       <h3>4 × 4 Frame</h3>
+
       <div class="price">₹120</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/4×6-frame.jpeg"
-           alt="8 x 6 Frame"
-           loading="lazy">
+
+      <img
+        src="/4×6-frame.jpeg"
+        alt="8 x 6 Frame"
+        loading="lazy"
+      >
 
       <h3>8 × 6 Frame</h3>
+
       <div class="price">₹180</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/frame-a4.jpeg"
-           alt="A4 Frame"
-           loading="lazy">
+
+      <img
+        src="/frame-a4.jpeg"
+        alt="A4 Frame"
+        loading="lazy"
+      >
 
       <h3>A4 Frame</h3>
+
       <div class="price">₹300</div>
+
     </div>
 
+
     <div class="product-card">
-      <img src="/frame-a3.jpeg"
-           alt="A3 Frame"
-           loading="lazy">
+
+      <img
+        src="/frame-a3.jpeg"
+        alt="A3 Frame"
+        loading="lazy"
+      >
 
       <h3>A3 Frame</h3>
+
       <div class="price">₹500</div>
+
     </div>
 
   </div>
 
 </section>
 
-<!-- =========================
-     COLLECTION
-========================= -->
+
+<!-- COLLECTION -->
 
 <section>
 
@@ -1227,25 +1077,30 @@ footer{
 
   <div class="showcase">
 
-    <img src="/poster-showcase.jpg"
-         alt="Poster Collection"
-         loading="lazy">
+    <img
+      src="/poster-showcase.jpg"
+      alt="Poster Collection"
+      loading="lazy"
+    >
 
-    <img src="/A4-poster .jpeg"
-         alt="A4 Poster"
-         loading="lazy">
+    <img
+      src="/A4-poster .jpeg"
+      alt="A4 Poster"
+      loading="lazy"
+    >
 
-    <img src="/Polaroids-small .jpg"
-         alt="Polaroid Collection"
-         loading="lazy">
+    <img
+      src="/Polaroids-small .jpg"
+      alt="Polaroid Collection"
+      loading="lazy"
+    >
 
   </div>
 
 </section>
 
-<!-- =========================
-     ORDER
-========================= -->
+
+<!-- ORDER -->
 
 <section id="order">
 
@@ -1263,12 +1118,14 @@ footer{
         placeholder="Customer Name"
       >
 
+
       <input
         id="phone"
         type="tel"
         value="+91 "
         placeholder="+91 WhatsApp Number"
       >
+
 
       <select id="product">
 
@@ -1314,6 +1171,7 @@ footer{
 
       </select>
 
+
       <input
         id="quantity"
         type="number"
@@ -1324,21 +1182,15 @@ footer{
 
     </div>
 
-    <input
-      id="photo"
-      type="file"
-      accept="image/jpeg,image/png,image/webp"
-      style="margin-top:15px;"
-    >
 
-    <div class="photo-note">
-      📸 Upload your photo • Maximum 10MB
-    </div>
+    <!-- IMAGE UPLOAD COMPLETELY REMOVED -->
+
 
     <textarea
       id="requirements"
       placeholder="Custom Requirements (optional)"
     ></textarea>
+
 
     <button
       type="button"
@@ -1352,11 +1204,13 @@ footer{
 
 </section>
 
-<!-- =========================
-     CONTACT
-========================= -->
 
-<section id="contact" class="contact">
+<!-- CONTACT -->
+
+<section
+  id="contact"
+  class="contact"
+>
 
   <h2 class="section-title">
     Contact <span>STUDIO 42</span>
@@ -1405,9 +1259,12 @@ footer{
 
       </svg>
 
-      <span>Instagram</span>
+      <span>
+        Instagram
+      </span>
 
     </a>
+
 
     <a
       class="contact-btn"
@@ -1420,15 +1277,15 @@ footer{
 
   </div>
 
+
   <div class="whatsapp-number">
     WhatsApp: +91 9087472456
   </div>
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -1438,9 +1295,8 @@ footer{
 
 </footer>
 
-<!-- =========================
-     FLOATING WHATSAPP
-========================= -->
+
+<!-- FLOATING WHATSAPP -->
 
 <a
   class="whatsapp"
@@ -1452,248 +1308,72 @@ footer{
   💬
 </a>
 
+
 <!-- =========================
-     CLOUDINARY + JAVASCRIPT
+     WHATSAPP ORDER JAVASCRIPT
+     CLOUDINARY COMPLETELY REMOVED
 ========================= -->
 
 <script>
 
-/* =====================================
-   CLOUDINARY SETTINGS
-   ===================================== */
-
-const CLOUD_NAME = "nzdg8ogu";
-const UPLOAD_PRESET = "studio42";
-
-
-/* =====================================
-   SEND ORDER
-   ===================================== */
-
-async function sendOrder(){
+function sendOrder(){
 
   const name =
-    document.getElementById("name")
-      .value
-      .trim();
+    document.getElementById("name").value.trim();
 
   const phone =
-    document.getElementById("phone")
-      .value
-      .trim();
+    document.getElementById("phone").value.trim();
 
   const product =
-    document.getElementById("product")
-      .value;
+    document.getElementById("product").value;
 
   const quantity =
-    document.getElementById("quantity")
-      .value;
+    document.getElementById("quantity").value;
 
   const requirements =
-    document.getElementById("requirements")
+    document
+      .getElementById("requirements")
       .value
       .trim();
 
-  const photoInput =
-    document.getElementById("photo");
 
-  const photo =
-    photoInput.files[0];
-
-  const button =
-    document.querySelector(".order-btn");
-
-
-  /* ================================
-     VALIDATION
-  ================================= */
+  /* VALIDATION */
 
   if(!name){
+
     alert("Please enter your name.");
+
     return;
   }
+
 
   if(!phone){
+
     alert("Please enter your WhatsApp number.");
+
     return;
   }
+
 
   if(!product){
+
     alert("Please select a product.");
+
     return;
   }
 
-  if(!quantity || Number(quantity) < 1){
+
+  if(!quantity || quantity < 1){
+
     alert("Please enter a valid quantity.");
-    return;
-  }
-
-  if(!photo){
-    alert("Please upload your photo.");
-    return;
-  }
-
-
-  /* ================================
-     FILE TYPE
-  ================================= */
-
-  const allowedTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/webp"
-  ];
-
-  if(!allowedTypes.includes(photo.type)){
-
-    alert(
-      "Please upload JPG, PNG or WEBP image."
-    );
 
     return;
   }
 
 
-  /* ================================
-     FILE SIZE
-  ================================= */
+  /* WHATSAPP MESSAGE */
 
-  const maxSize =
-    10 * 1024 * 1024;
-
-  if(photo.size > maxSize){
-
-    alert(
-      "Photo must be smaller than 10MB."
-    );
-
-    return;
-  }
-
-
-  /* ================================
-     CLOUDINARY SETTINGS CHECK
-  ================================= */
-
-  if(
-    !CLOUD_NAME ||
-    !UPLOAD_PRESET
-  ){
-
-    alert(
-      "Cloudinary settings are missing."
-    );
-
-    return;
-  }
-
-
-  /* ================================
-     BUTTON LOADING
-  ================================= */
-
-  const oldText =
-    button.innerText;
-
-  button.disabled = true;
-
-  button.innerText =
-    "UPLOADING PHOTO...";
-
-
-  try{
-
-    /* ==============================
-       FORM DATA
-    ============================== */
-
-    const formData =
-      new FormData();
-
-    formData.append(
-      "file",
-      photo
-    );
-
-    formData.append(
-      "upload_preset",
-      UPLOAD_PRESET
-    );
-
-
-    /* ==============================
-       CLOUDINARY UPLOAD URL
-    ============================== */
-
-    const uploadURL =
-      "https://api.cloudinary.com/v1_1/" +
-      encodeURIComponent(CLOUD_NAME) +
-      "/image/upload";
-
-
-    /* ==============================
-       UPLOAD
-    ============================== */
-
-    const response =
-      await fetch(
-        uploadURL,
-        {
-          method:"POST",
-          body:formData
-        }
-      );
-
-
-    const data =
-      await response.json();
-
-
-    console.log(
-      "Cloudinary response:",
-      data
-    );
-
-
-    /* ==============================
-       ERROR CHECK
-    ============================== */
-
-    if(!response.ok){
-
-      const errorMessage =
-        data?.error?.message ||
-        "Photo upload failed.";
-
-      throw new Error(
-        errorMessage
-      );
-    }
-
-
-    /* ==============================
-       GET IMAGE URL
-    ============================== */
-
-    const imageURL =
-      data.secure_url;
-
-
-    if(!imageURL){
-
-      throw new Error(
-        "Cloudinary did not return image URL."
-      );
-    }
-
-
-    /* ==============================
-       WHATSAPP MESSAGE
-    ============================== */
-
-    const message =
-
+  const message =
 `STUDIO 42 - NEW ORDER
 
 ━━━━━━━━━━━━━━━━
@@ -1724,58 +1404,25 @@ ${requirements || "None"}
 
 ━━━━━━━━━━━━━━━━
 
-📸 CUSTOMER PHOTO
-
-${imageURL}
-
-━━━━━━━━━━━━━━━━
-
 Please confirm my order.
 
 Thank you!
 STUDIO 42`;
 
 
-    /* ==============================
-       WHATSAPP URL
-    ============================== */
+  /* WHATSAPP URL */
 
-    const whatsappURL =
-      "https://wa.me/919087472456?text=" +
-      encodeURIComponent(message);
+  const whatsappURL =
+    "https://wa.me/919087472456?text=" +
+    encodeURIComponent(message);
 
 
-    /* ==============================
-       OPEN WHATSAPP
-    ============================== */
+  /* OPEN WHATSAPP */
 
-    window.open(
-      whatsappURL,
-      "_blank"
-    );
-
-
-  }catch(error){
-
-    console.error(
-      "Cloudinary Upload Error:",
-      error
-    );
-
-    alert(
-      "Photo upload failed.\n\nError: " +
-      error.message
-    );
-
-
-  }finally{
-
-    button.disabled = false;
-
-    button.innerText =
-      oldText;
-
-  }
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
 
 }
 
