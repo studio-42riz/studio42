@@ -920,8 +920,6 @@ footer{
 
 }
 
-/* SMALL PHONES */
-
 @media(max-width:380px){
 
   .navlinks{
@@ -1072,7 +1070,6 @@ footer{
   <div class="product-grid">
 
     <div class="product-card">
-
       <img
         src="/Polaroids-small .jpg"
         alt="Polaroid Prints"
@@ -1080,13 +1077,10 @@ footer{
       >
 
       <h3>Polaroid Prints</h3>
-
       <div class="price">₹10</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/mini-poster.jpeg"
         alt="Mini Poster"
@@ -1094,13 +1088,10 @@ footer{
       >
 
       <h3>Mini Poster</h3>
-
       <div class="price">₹15</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/A4-poster .jpeg"
         alt="A4 Poster"
@@ -1108,13 +1099,10 @@ footer{
       >
 
       <h3>A4 Poster</h3>
-
       <div class="price">₹30</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/a3-poster.jpeg"
         alt="A3 Poster"
@@ -1122,13 +1110,10 @@ footer{
       >
 
       <h3>A3 Poster</h3>
-
       <div class="price">₹50</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/spilt-poster .jpg"
         alt="Split Poster"
@@ -1136,9 +1121,7 @@ footer{
       >
 
       <h3>Split Poster</h3>
-
       <div class="price">₹100</div>
-
     </div>
 
   </div>
@@ -1156,7 +1139,6 @@ footer{
   <div class="product-grid">
 
     <div class="product-card">
-
       <img
         src="/4×4-frame.jpg"
         alt="4 x 4 Frame"
@@ -1164,13 +1146,10 @@ footer{
       >
 
       <h3>4 × 4 Frame</h3>
-
       <div class="price">₹120</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/4×6-frame.jpeg"
         alt="8 x 6 Frame"
@@ -1178,13 +1157,10 @@ footer{
       >
 
       <h3>8 × 6 Frame</h3>
-
       <div class="price">₹180</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/frame-a4.jpeg"
         alt="A4 Frame"
@@ -1192,13 +1168,10 @@ footer{
       >
 
       <h3>A4 Frame</h3>
-
       <div class="price">₹300</div>
-
     </div>
 
     <div class="product-card">
-
       <img
         src="/frame-a3.jpeg"
         alt="A3 Frame"
@@ -1206,9 +1179,7 @@ footer{
       >
 
       <h3>A3 Frame</h3>
-
       <div class="price">₹500</div>
-
     </div>
 
   </div>
@@ -1410,9 +1381,7 @@ footer{
 
       </svg>
 
-      <span>
-        Instagram
-      </span>
+      <span>Instagram</span>
 
     </a>
 
@@ -1455,25 +1424,24 @@ footer{
   💬
 </a>
 
-<!-- CLOUDINARY + JAVASCRIPT -->
+
+<!-- =========================================
+     CLOUDINARY + JAVASCRIPT
+========================================= -->
 
 <script>
 
-/*
-=========================================
-  CLOUDINARY SETTINGS
-=========================================
-*/
+/* =========================================
+   CLOUDINARY SETTINGS
+========================================= */
 
 const CLOUD_NAME = "nzdg8ogu";
 const UPLOAD_PRESET = "studio42";
 
 
-/*
-=========================================
-  SEND ORDER
-=========================================
-*/
+/* =========================================
+   SEND ORDER
+========================================= */
 
 async function sendOrder(){
 
@@ -1533,7 +1501,7 @@ async function sendOrder(){
   }
 
 
-  /* FILE TYPE */
+  /* FILE TYPE CHECK */
 
   const allowedTypes = [
     "image/jpeg",
@@ -1551,7 +1519,7 @@ async function sendOrder(){
   }
 
 
-  /* FILE SIZE */
+  /* FILE SIZE CHECK */
 
   const maxSize =
     10 * 1024 * 1024;
@@ -1560,6 +1528,21 @@ async function sendOrder(){
 
     alert(
       "Photo must be smaller than 10MB."
+    );
+
+    return;
+  }
+
+
+  /* CLOUDINARY SETTINGS CHECK */
+
+  if(
+    !CLOUD_NAME ||
+    !UPLOAD_PRESET
+  ){
+
+    alert(
+      "Cloudinary settings are missing."
     );
 
     return;
@@ -1579,7 +1562,7 @@ async function sendOrder(){
 
   try{
 
-    /* FORM DATA */
+    /* CREATE FORM DATA */
 
     const formData =
       new FormData();
@@ -1595,11 +1578,13 @@ async function sendOrder(){
     );
 
 
-    /* CLOUDINARY UPLOAD */
+    /* CLOUDINARY UPLOAD URL */
 
     const uploadURL =
       `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
+
+    /* UPLOAD PHOTO */
 
     const response =
       await fetch(
@@ -1615,21 +1600,24 @@ async function sendOrder(){
       await response.json();
 
 
-    /* ERROR CHECK */
+    /* CLOUDINARY ERROR */
 
     if(!response.ok){
 
-      console.error(data);
+      console.error(
+        "CLOUDINARY ERROR:",
+        data
+      );
 
       throw new Error(
         data.error?.message ||
-        "Image upload failed."
+        "Cloudinary upload failed."
       );
 
     }
 
 
-    /* IMAGE URL */
+    /* GET IMAGE URL */
 
     const imageURL =
       data.secure_url;
@@ -1703,9 +1691,10 @@ STUDIO 42`;
     );
 
     alert(
-      "Photo upload failed. Please try again."
+      "Photo upload failed.\n\n" +
+      "Error: " +
+      error.message
     );
-
 
   }finally{
 
@@ -1721,4 +1710,4 @@ STUDIO 42`;
 </script>
 
 </body>
-</html>
+  </html>
